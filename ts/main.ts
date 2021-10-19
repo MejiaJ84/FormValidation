@@ -5,8 +5,10 @@ window.onload = function() {
 }
 
 function main():void {
+    resetErrorMessages();
     hasText("first-name", "First name is required.");
     hasText("last-name", "Last name is required.");
+    
 }
 
 /**
@@ -25,4 +27,20 @@ function hasText(id:string, errorMsg:string):boolean {
         return false;
     }
     return true;
+}
+
+/**
+ * Resets spans back to default
+ */
+function resetErrorMessages():void {
+    let allSpans = document.querySelectorAll("form > span");
+    for(let i = 0; i < allSpans.length; i++) {
+        let currSpan = <HTMLElement>allSpans[i];
+        if(currSpan.hasAttribute("data-required")){
+            currSpan.innerText = "*";
+        }
+        else{
+            currSpan.innerText = "";
+        }
+    }
 }

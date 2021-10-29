@@ -1,5 +1,23 @@
 form > span{
     color: red;
+} 
+
+button{
+    padding: .75em;
+    border-radius: .5em;
+    border: 1px solid rgb(18, 233, 10);
+    background-color: rgb(3, 65, 3);
+    color: rgb(207, 123, 255);
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgba(1, 15, 3, 0.932);
+}
+
+body{
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 input[type=text]{
@@ -7,7 +25,11 @@ input[type=text]{
 }
 
 h1{
-    margin-left: 50%;
+    text-align: center;
+}
+
+h1, form > label, form > button, form > input{
+    font-family: 'Indie Flower', cursive;
 }
 
 form > label{

@@ -6,6 +6,11 @@ function main() {
     resetErrorMessages();
     hasText("first-name", "First name is required.");
     hasText("last-name", "Last name is required.");
+    var dobBox = document.getElementById("dob");
+    var dob = dobBox.value;
+    if (!isValidDate(dob)) {
+        dobBox.nextElementSibling.innerHTML = "Invalid format, format should be mm/dd/yyyy.";
+    }
 }
 function hasText(id, errorMsg) {
     var textBox = document.getElementById(id);
@@ -28,4 +33,8 @@ function resetErrorMessages() {
             currSpan.innerText = "";
         }
     }
+}
+function isValidDate(input) {
+    var datePattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/g;
+    return datePattern.test(input);
 }

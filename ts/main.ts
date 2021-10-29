@@ -18,11 +18,11 @@ function main():void {
  * @returns 
  */
 function hasText(id:string, errorMsg:string):boolean {
-    let textBox = <HTMLInputElement>document.getElementById(id); // gets the first name element
-    let txtValue = textBox.value; // gets the value out of the first name box
+    let textBox = <HTMLInputElement>document.getElementById(id); // gets the name element
+    let txtValue = textBox.value; // gets the value out of the name box
 
     if (txtValue == "") {
-        let errorSpan = <HTMLSpanElement>textBox.nextElementSibling; // need to cast to span element 
+        let errorSpan = <HTMLSpanElement>textBox.nextElementSibling; // need <HTMLSpanElement> to cast to span element 
         errorSpan.innerText = errorMsg;
         return false;
     }

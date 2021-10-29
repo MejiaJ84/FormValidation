@@ -4,7 +4,30 @@ window.onload = function() {
     formBtn.onclick = main;
 }
 
+//example on how to change an element with an onclick
+function changeHeading(){
+    let heading = <HTMLElement>this;
+    let red = Math.floor(Math.random() * 255 + 1);
+    let green = Math.floor(Math.random() * 255 + 1);
+    let blue = Math.floor(Math.random() * 255 + 1);
+    heading.style.color = "rgb("+ red + ", " + green + ", " + blue + ")";
+}
+
 function main():void {
+
+    let messageHeading = document.createElement("h2");
+    messageHeading.innerText = "Processing form";
+    messageHeading.setAttribute("class", "message")
+    messageHeading.onclick = changeHeading;  //example on how to change an element with an onclick
+
+    let h1 = document.querySelector("h1");
+    h1.insertAdjacentElement("afterend", messageHeading)
+
+    setTimeout(function(){
+        messageHeading.remove();
+    }, 5000)
+
+
     resetErrorMessages();
     hasText("first-name", "First name is required.");
     hasText("last-name", "Last name is required.");

@@ -11,10 +11,16 @@ function main():void {
     
     // Validate date
     // need to cast as an input element to get the .value property as inputs have a .value property
+    checkValidDate();
+}
+
+function checkValidDate() {
     let dobBox = <HTMLInputElement>document.getElementById("dob");
     let dob = dobBox.value;
-    if(!isValidDate(dob)){
-        dobBox.nextElementSibling.innerHTML = "Invalid format, format should be mm/dd/yyyy."
+    if (!isValidDate(dob)) {
+        //dobBox.nextElementSibling.innerHTML = "Invalid format, format should be mm/dd/yyyy."
+        let errSpan = document.getElementById("dob-span");
+        errSpan.innerHTML = "Invalid format, format should be mm/dd/yyyy.";
     }
 }
 
